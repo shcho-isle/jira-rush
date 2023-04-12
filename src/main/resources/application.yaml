@@ -25,8 +25,8 @@ spring:
         jdbc.batch_size: 20
   datasource:
     url: jdbc:postgresql://localhost:5432/jira
-    username: jira
-    password: JiraRush
+    username: ${JIRARUSH_DB_USER}
+    password: ${JIRARUSH_DB_PASSWORD}
 
   liquibase:
     changeLog: "classpath:db/changelog.sql"
@@ -50,18 +50,18 @@ spring:
         registration:
           github:
             client-id: 19ef46f375d52693afa9
-            client-secret: a5e41277f801e18a1944353f4c94f08fbd0920a3
+            client-secret: ${JIRARUSH_GITHUB_SECRET}
             scope:
               - email
           google:
             client-id: 329113642700-f8if6pu68j2repq3ef6umd5jgiliup60.apps.googleusercontent.com
-            client-secret: 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
+            client-secret: ${JIRARUSH_GOOGLE_SECRET}
             scope:
               - email
               - profile
           gitlab:
             client-id: 7b8cc5e259fbc55aa68edd20333f4698abd62ab22eac7b77d5bfe04f991ef2c2
-            client-secret: 8a91cbcd5e9e51da3a13c42f677f65c35eb005299a75f650e371b147bd9de797
+            client-secret: ${JIRARUSH_GITLAB_SECRET}
             client-name: GitLab
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
@@ -86,7 +86,7 @@ spring:
           auth: true
     host: smtp.gmail.com
     username: jira4jr@gmail.com
-    password: zdfzsrqvgimldzyj
+    password: ${JIRARUSH_MAIL_PASSWORD}
     port: 587
   thymeleaf.check-template-location: false
 
