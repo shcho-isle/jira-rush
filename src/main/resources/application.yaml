@@ -59,20 +59,6 @@ spring:
             scope:
               - email
               - profile
-          vk:
-            client-id: 51562377
-            client-secret: jNM1YHQy1362Mqs49wUN
-            client-name: Vkontakte
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            client-authentication-method: client_secret_post
-            authorization-grant-type: authorization_code
-            scope: email
-          yandex:
-            client-id: 2f3395214ba84075956b76a34b231985
-            client-secret: ed236c501e444a609b0f419e5e88f1e1
-            client-name: Yandex
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            authorization-grant-type: authorization_code
           gitlab:
             client-id: 7b8cc5e259fbc55aa68edd20333f4698abd62ab22eac7b77d5bfe04f991ef2c2
             client-secret: 8a91cbcd5e9e51da3a13c42f677f65c35eb005299a75f650e371b147bd9de797
@@ -81,16 +67,6 @@ spring:
             authorization-grant-type: authorization_code
             scope: read_user
         provider:
-          vk:
-            authorization-uri: https://oauth.vk.com/authorize
-            token-uri: https://oauth.vk.com/access_token
-            user-info-uri: https://api.vk.com/method/users.get?v=8.1
-            user-name-attribute: response
-          yandex:
-            authorization-uri: https://oauth.yandex.ru/authorize
-            token-uri: https://oauth.yandex.ru/token
-            user-info-uri: https://login.yandex.ru/info
-            user-name-attribute: login
           gitlab:
             authorization-uri: https://gitlab.com/oauth/authorize
             token-uri: https://gitlab.com/oauth/token
