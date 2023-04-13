@@ -26,6 +26,7 @@ public class ReferenceService {
 
     static Map<RefType, Map<String, RefTo>> refSelect;
 
+    // TODO: maybe this method is the reason why few tests failed
     @PostConstruct
     void initialize() {
         log.info("init loading");
