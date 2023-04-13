@@ -18,9 +18,12 @@
                     <div th:if="${authUser} == null">
                         <a href="/view/login" type="button" class="btn btn-orange">Login/Register</a>
                     </div>
-                    <div th:if="${authUser} != null">
+                    <th:block th:if="${authUser} != null">
                         <a href="/ui/profile" type="button" class="btn btn-orange"><i class="fa-solid fa-address-card"></i> Profile</a>
-                    </div>
+                        <form action="/ui/logout" method="post" class="mx-2">
+                            <button class="btn btn-yellow btn-orange" type="submit"><i class="fa-solid fa-sign-out"></i> Logout</button>
+                        </form>
+                    </th:block>
                 </div>
             </div>
         </nav>

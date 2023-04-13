@@ -35,10 +35,10 @@ class RegisterControllerTest extends AbstractControllerTest {
 
     @Test
     void register() throws Exception {
-        UserTo newTo = new UserTo(null, "newemail@yandex.ru", "newPassword", "newName", "newLastName", "newDisplayName");
+        UserTo newTo = new UserTo(null, "newemail@gmail.com", "newPassword", "newName", "newLastName", "newDisplayName");
 
         Object sessionToken = Objects.requireNonNull(perform(MockMvcRequestBuilders.post(REGISTER_URL)
-                        .param("email", "newemail@yandex.ru")
+                        .param("email", "newemail@gmail.com")
                         .param("password", "newPassword")
                         .param("firstName", "newName")
                         .param("lastName", "newLastName")
@@ -61,7 +61,7 @@ class RegisterControllerTest extends AbstractControllerTest {
     @WithUserDetails(USER_MAIL)
     void registerWhenAuthorized() throws Exception {
         perform(MockMvcRequestBuilders.post(REGISTER_URL)
-                .param("email", "newemail@yandex.ru")
+                .param("email", "newemail@gmail.com")
                 .param("password", "newPassword")
                 .param("firstName", "newName")
                 .param("lastName", "newLastName")

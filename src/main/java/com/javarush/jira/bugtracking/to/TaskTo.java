@@ -1,6 +1,5 @@
 package com.javarush.jira.bugtracking.to;
 
-import com.javarush.jira.bugtracking.internal.model.Sprint;
 import com.javarush.jira.common.util.validation.Code;
 import com.javarush.jira.common.util.validation.NoHtml;
 import jakarta.annotation.Nullable;
@@ -29,7 +28,10 @@ public class TaskTo extends NodeTo<TaskTo> {
     String description;
 
     @NotNull
-    Sprint sprint;
+    SprintTo sprint;
+
+    @NotNull
+    ProjectTo project;
 
     @Nullable
     LocalDateTime updated;
@@ -47,13 +49,15 @@ public class TaskTo extends NodeTo<TaskTo> {
 
     List<ActivityTo> activities;
 
-    public TaskTo(Long id, String title, boolean enabled, String typeCode, String statusCode, String description, Sprint sprint, LocalDateTime updated,
+    public TaskTo(Long id, String title, boolean enabled, String typeCode, String statusCode, String description, SprintTo sprint,
+                  ProjectTo project, LocalDateTime updated,
                   String priorityCode, int estimate, int storyPoints, Set<String> tags, List<ActivityTo> activities, TaskTo parent) {
         super(id, title, enabled, parent);
         this.typeCode = typeCode;
         this.statusCode = statusCode;
         this.description = description;
         this.sprint = sprint;
+        this.project = project;
         this.updated = updated;
         this.priorityCode = priorityCode;
         this.estimate = estimate;

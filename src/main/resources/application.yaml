@@ -50,7 +50,7 @@ spring:
       client:
         registration:
           github:
-            client-id: 19ef46f375d52693afa9
+            client-id: 3d0d8738e65881fff266
             client-secret: ${JIRARUSH_GITHUB_SECRET}
             scope:
               - email
@@ -61,7 +61,7 @@ spring:
               - email
               - profile
           gitlab:
-            client-id: 7b8cc5e259fbc55aa68edd20333f4698abd62ab22eac7b77d5bfe04f991ef2c2
+            client-id: b8520a3266089063c0d8261cce36971defa513f5ffd9f9b7a3d16728fc83a494
             client-secret: ${JIRARUSH_GITLAB_SECRET}
             client-name: GitLab
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"

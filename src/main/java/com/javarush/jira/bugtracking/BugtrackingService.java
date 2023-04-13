@@ -11,9 +11,9 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RequiredArgsConstructor
-public abstract class BugtrackingService<E extends TitleEntity, T extends NodeTo<T>> {
-    private final BaseRepository<E> repository;
-    private final BaseMapper<E, T> mapper;
+public abstract class BugtrackingService<E extends TitleEntity, T extends NodeTo<T>, R extends BaseRepository<E>> {
+    protected final R repository;
+    protected final BaseMapper<E, T> mapper;
 
     public List<TreeNode<T>> getTree() {
         List<E> entities = repository.findAll();

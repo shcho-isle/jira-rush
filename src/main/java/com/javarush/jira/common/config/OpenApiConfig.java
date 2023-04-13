@@ -21,13 +21,13 @@ import org.springframework.context.annotation.Configuration;
                 title = "REST API documentation",
                 version = "1.0",
                 description = """
-                        <a href='http://89.208.106.4/'>JavaRush Jira application</a><br>
+                        <a href='http://localhost/'>JavaRush Jira application</a><br>
                         <p><b>Тестовые креденшелы:</b><br>
-                        - user@yandex.ru / password<br>
+                        - user@gmail.com / password<br>
                         - admin@gmail.com / admin<br>
                         - guest@gmail.com / guest</p>
                         """,
-                contact = @Contact(url = "https://javaops.ru/#contacts", name = "Grigory Kislin", email = "admin@javaops.ru")
+                contact = @Contact(url = "https://javarush.com/", name = "JavaRush")
         ),
         servers = {
                 @Server(url = "${app.host-url}")

@@ -21,7 +21,5 @@
 ## Тестирование
 - https://habr.com/ru/articles/259055/
 
-## TODO
-- MailService: calculate title for group emailing only once
-- Отписка от почты: https://habr.com/ru/articles/280141/   
-  `mimeMessage.setHeader("List-Unsubscribe", '<' + subscriptionUrl + '>');`
+Список выполненных задач:
+...

@@ -16,7 +16,7 @@ public class UserTestData {
     public static final long ADMIN_ID = 2;
     public static final long GUEST_ID = 3;
     public static final long NOT_FOUND = 100;
-    public static final String USER_MAIL = "user@yandex.ru";
+    public static final String USER_MAIL = "user@gmail.com";
     public static final String ADMIN_MAIL = "admin@gmail.com";
     public static final String GUEST_MAIL = "guest@gmail.com";
 

@@ -7,7 +7,7 @@ import com.javarush.jira.bugtracking.to.ProjectTo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProjectService extends BugtrackingService<Project, ProjectTo> {
+public class ProjectService extends BugtrackingService<Project, ProjectTo, ProjectRepository> {
     public ProjectService(ProjectRepository repository, ProjectMapper mapper) {
         super(repository, mapper);
     }

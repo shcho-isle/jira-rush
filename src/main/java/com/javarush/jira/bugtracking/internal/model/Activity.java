@@ -43,7 +43,7 @@ public class Activity extends BaseEntity {
     @Column(name = "updated")
     private LocalDateTime updated;
 
-//    history of task field change
+//    history of task's status have been changed
     @Nullable
     @Column(name = "status_code")
     private String statusCode;
