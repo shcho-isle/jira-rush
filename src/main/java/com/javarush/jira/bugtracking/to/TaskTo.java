@@ -3,10 +3,7 @@ package com.javarush.jira.bugtracking.to;
 import com.javarush.jira.common.util.validation.Code;
 import com.javarush.jira.common.util.validation.NoHtml;
 import jakarta.annotation.Nullable;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
@@ -42,7 +39,9 @@ public class TaskTo extends NodeTo<TaskTo> {
     @Positive
     int estimate;
 
-    @Size(min = 1, max = 30)
+    //    @Size(min = 1, max = 30)
+    @Min(1)
+    @Max(30)
     int storyPoints;
 
     Set<String> tags;

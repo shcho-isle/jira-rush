@@ -42,11 +42,11 @@ public class Task extends TitleEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "sprint_id")
     private Sprint sprint;
 
