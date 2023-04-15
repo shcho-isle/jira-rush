@@ -1,6 +1,8 @@
 package com.javarush.jira.bugtracking.internal.mapper;
 
+import com.javarush.jira.bugtracking.internal.model.Activity;
 import com.javarush.jira.bugtracking.internal.model.Task;
+import com.javarush.jira.bugtracking.to.ActivityTo;
 import com.javarush.jira.bugtracking.to.TaskTo;
 import com.javarush.jira.common.BaseMapper;
 import org.mapstruct.Mapper;
@@ -21,4 +23,7 @@ public interface TaskMapper extends BaseMapper<Task, TaskTo> {
 
     @Override
     List<TaskTo> toToList(Collection<Task> tasks);
+
+    @Mapping(target = "task", ignore = true)
+    ActivityTo toTo(Activity activity);
 }

@@ -25,6 +25,12 @@
                                             th:text="${task.description}"></h6>
                                         <h6 class="card-subtitle mb-2 text-muted" style="text-align: left; "
                                             th:text="${task.priorityCode}"></h6>
+                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: left; "
+                                            th:text="'In progress: ' + ${task.daysInProgress} + ' days'"></h6>
+                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: left; "
+                                            th:text="'In testing: ' + ${task.daysTesting} + ' days'"></h6>
+                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align: left; "
+                                            th:text="${task.tags}"></h6>
                                     </div>
                                 </div>
                             </div>

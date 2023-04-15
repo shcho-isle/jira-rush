@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
+import static com.javarush.jira.bugtracking.TaskService.calculateDays;
+
 @Value
 @EqualsAndHashCode(callSuper = true)
 public class TaskTo extends NodeTo<TaskTo> {
@@ -48,6 +50,10 @@ public class TaskTo extends NodeTo<TaskTo> {
 
     List<ActivityTo> activities;
 
+    int daysInProgress;
+
+    int daysTesting;
+
     public TaskTo(Long id, String title, boolean enabled, String typeCode, String statusCode, String description, SprintTo sprint,
                   ProjectTo project, LocalDateTime updated,
                   String priorityCode, int estimate, int storyPoints, Set<String> tags, List<ActivityTo> activities, TaskTo parent) {
@@ -63,5 +69,7 @@ public class TaskTo extends NodeTo<TaskTo> {
         this.storyPoints = storyPoints;
         this.tags = tags;
         this.activities = activities;
+        this.daysInProgress = calculateDays(activities, "in progress");
+        this.daysTesting = calculateDays(activities, "testing");
     }
 }

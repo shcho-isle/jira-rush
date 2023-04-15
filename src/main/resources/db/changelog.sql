@@ -200,6 +200,8 @@ values ('task', 'Task', 2),
 -- TASK_STATUS
        ('icebox', 'Icebox', 3),
        ('backlog', 'Backlog', 3),
+       ('review', 'Review', 3),
+       ('testing', 'Testing', 3),
        ('ready', 'Ready', 3),
        ('in progress', 'In progress', 3),
        ('done', 'Done', 3),
@@ -261,6 +263,17 @@ INSERT INTO task (id, title, description, type_code, status_code, priority_code,
 INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (3, 'Task-2', 'test 2 task', 'bug', 'ready', 'normal', null, null, 2, 1, null, null, null);
 INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (5, 'Task-4', 'test 4', 'bug', 'in progress', 'normal', null, null, 2, 1, null, null, null);
 INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (4, 'Task-3', 'test 3 descr', 'task', 'done', 'low', null, null, 2, 1, null, null, null);
+
+INSERT INTO ACTIVITY (ID, AUTHOR_ID, TASK_ID, UPDATED, TYPE_CODE)
+values (10, 2, 2, '2015-03-08 08:12', 'backlog'),
+       (11, 2, 2, '2015-04-08 09:20', 'in progress'),
+       (12, 2, 2, '2015-04-15 13:10', 'testing'),
+       (13, 2, 2, '2015-04-17 11:08', 'ready'),
+       (14, 2, 3, '2015-03-11 17:26', 'backlog'),
+       (15, 2, 4, '2015-05-01 08:48', 'in progress'),
+       (16, 2, 5, '2015-06-24 18:06', 'backlog'),
+       (17, 2, 5, '2015-06-26 17:33', 'in progress'),
+       (18, 2, 5, '2015-07-15 12:10', 'testing');
 
 INSERT INTO user_belong (id, object_id, object_type, user_id, user_type_code, startpoint, endpoint) VALUES (3, 2, 2, 2, 'admin', null, null);
 INSERT INTO user_belong (id, object_id, object_type, user_id, user_type_code, startpoint, endpoint) VALUES (4, 3, 2, 2, 'admin', null, null);
