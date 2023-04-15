@@ -18,4 +18,16 @@ public class TaskRestController extends AbstractTaskController {
     public void update(@Valid @RequestBody TaskTo taskTo, @AuthenticationPrincipal AuthUser authUser) {
         super.update(taskTo, authUser.id());
     }
+
+    @PutMapping(value = "/subscribe", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void subscribe(@Valid @RequestBody TaskTo taskTo, @AuthenticationPrincipal AuthUser authUser) {
+        super.subscribe(taskTo, authUser.id());
+    }
+
+    @PutMapping(value = "/unsubscribe", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void unsubscribe(@Valid @RequestBody TaskTo taskTo, @AuthenticationPrincipal AuthUser authUser) {
+        super.unsubscribe(taskTo, authUser.id());
+    }
 }
