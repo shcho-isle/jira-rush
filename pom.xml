@@ -175,5 +175,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>jira-rush</finalName>
 	</build>
 </project>
