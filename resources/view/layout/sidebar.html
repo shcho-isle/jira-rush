@@ -15,14 +15,14 @@
         </a>
         <div th:if="${authUser} == null">
             <a href="/view/login" type="button" class="d-lg-none btn btn-orange px-2 px-md-4 me-3 me-md-4 mx-2 mt-2">
-                <span class="d-md-none">Login/Reg</span>
-                <span class="d-none d-md-block">Login/Register</span>
+                <span class="d-md-none" th:text="#{view.sidebar.login}">short login</span>
+                <span class="d-none d-md-block" th:text="#{view.general.login}">login</span>
             </a>
         </div>
         <div th:if="${authUser} != null">
             <a href="/ui/profile" type="button" class="d-lg-none btn btn-orange px-2 px-md-4 me-3 me-md-4 mx-2 mt-2">
                 <i class="fa-solid fa-address-card"></i>
-                Profile
+                <span th:text="#{view.general.profile}">Profile</span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -38,19 +38,19 @@
                     </li>
                 </div>
                 <li class="nav-item menu-item mt-3 mt-lg-0 mb-0 mb-lg-3" id="test1">
-                    <a class="nav-link sidebar-nav-link" href="#test1"><span class="ms-4"><i class="fa-regular fa-folder-open fa-fw me-2"></i>Link_1</span></a>
+                    <a class="nav-link sidebar-nav-link" href="#test1"><span class="ms-4"><i class="fa-regular fa-folder-open fa-fw me-2"></i><span th:text="#{view.sidebar.link1}">link1</span></span></a>
                 </li>
                 <li class="nav-item menu-item mb-0 mb-lg-3" id="test2">
-                    <a class="nav-link sidebar-nav-link" href="#test2"><span class="ms-4"><i class="fa-solid fa-list-check fa-fw me-2"></i>Link_2</span></a>
+                    <a class="nav-link sidebar-nav-link" href="#test2"><span class="ms-4"><i class="fa-solid fa-list-check fa-fw me-2"></i><span th:text="#{view.sidebar.link2}">link2</span></span></a>
                 </li>
                 <li class="nav-item menu-item mb-0 mb-lg-3" id="test3">
-                    <a class="nav-link sidebar-nav-link" href="#test3"><span class="ms-4"><i class="fa-solid fa-bug fa-fw me-2"></i>Link_3</span></a>
+                    <a class="nav-link sidebar-nav-link" href="#test3"><span class="ms-4"><i class="fa-solid fa-bug fa-fw me-2"></i><span th:text="#{view.sidebar.link3}">link3</span></span></a>
                 </li>
                 <li class="nav-item menu-item mb-0 mb-lg-3" id="test4">
-                    <a class="nav-link sidebar-nav-link" href="#test4"><span class="ms-4"><i class="fa-solid fa-book-skull fa-fw me-2"></i>Link_4</span></a>
+                    <a class="nav-link sidebar-nav-link" href="#test4"><span class="ms-4"><i class="fa-solid fa-book-skull fa-fw me-2"></i><span th:text="#{view.sidebar.link5}">link4</span></span></a>
                 </li>
                 <li class="nav-item menu-item" id="test5">
-                    <a class="nav-link sidebar-nav-link" href="#test5"><span class="ms-4"><i class="fa-solid fa-comments fa-fw me-2"></i>Link_5</span></a>
+                    <a class="nav-link sidebar-nav-link" href="#test5"><span class="ms-4"><i class="fa-solid fa-comments fa-fw me-2"></i><span th:text="#{view.sidebar.link4}">link5</span></span></a>
                 </li>
             </ul>
         </div>
