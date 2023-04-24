@@ -5,6 +5,8 @@ import com.javarush.jira.bugtracking.internal.model.Task;
 import com.javarush.jira.bugtracking.internal.repository.TaskRepository;
 import com.javarush.jira.bugtracking.to.ActivityTo;
 import com.javarush.jira.bugtracking.to.TaskTo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static java.time.temporal.ChronoUnit.DAYS;
+import static java.util.Objects.isNull;
 
 @Service
 public class TaskService extends BugtrackingService<Task, TaskTo, TaskRepository> {
@@ -21,10 +24,18 @@ public class TaskService extends BugtrackingService<Task, TaskTo, TaskRepository
     }
 
     public List<TaskTo> getAll() {
-        return mapper.toToList(repository.getAll());
+        return mapper.toToList(repository.findBySprintIsNotNull());
+    }
+
+    public Page<Task> getBacklogPage(Pageable pageable) {
+        return repository.findBySprintIsNull(pageable);
     }
 
     public static int calculateDays(List<ActivityTo> activities, String typeCode) {
+        if (isNull(activities)) {
+            return 0;
+        }
+
         activities.sort(Comparator.comparing(ActivityTo::getUpdated));
         Optional<ActivityTo> start = activities.stream()
                 .filter(a -> a.getTypeCode().equals(typeCode))
@@ -43,5 +54,10 @@ public class TaskService extends BugtrackingService<Task, TaskTo, TaskRepository
             finishDate = LocalDate.now();
         }
         return (int) DAYS.between(startDate, finishDate);
+    }
+
+    public void save(TaskTo taskTo) {
+        Task task = mapper.updateFromTo(repository.getExisted(taskTo.id()), taskTo);
+        repository.save(task);
     }
 }

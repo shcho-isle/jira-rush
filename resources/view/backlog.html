@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<!--/*@thymesVar id="authUser" type="com.javarush.jira.login.AuthUser"*/-->
+<!--/*@thymesVar id="tasksList" type="java.util.List<com.javarush.jira.bugtracking.to.TaskTo>>"*/-->
+
+<th:block th:replace="~{layout/main::page(title='Backlog',appMain=~{::appMain})}">
+    <appMain>
+        <h1 th:text="#{view.general.backlog}">backlog</h1>
+        <table class="table table-striped table-advance table-hover">
+            <tbody>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Priority</th>
+                <th>Tags</th>
+            </tr>
+            <tr th:each="task:${tasksList}">
+                <td><i class="fa fa-table"></i></td>
+                <td th:text="${task.title}"></td>
+                <td th:text="${task.description}"></td>
+                <td th:text="${task.typeCode}"></td>
+                <td th:text="${task.priorityCode}"></td>
+                <td th:text="${task.tags}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <footer class="panel-footer">
+            ([[${totalTasks}]] issues) : Page [[${currentPage}]] of [[${totalPages}]]
+            &nbsp; &nbsp; - &nbsp;
+            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                <a th:href="@{'/ui/backlog/' + ${i}}">[[${i}]]</a>
+                &nbsp; &nbsp;
+            </span>
+        </footer>
+
+    </appMain>
+</th:block>
