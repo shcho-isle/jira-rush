@@ -1,11 +1,16 @@
 #  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 app:
   host-url: http://localhost:8080
-  test-mail: jira4jr@gmail.com
+  test-mail: pavlo.plynko@gmail.com
   templates-update-cache: 5s
   mail-sending-props:
     core-pool-size: 8
     max-pool-size: 100
+
+jwt:
+#  header: Authorization
+  secret: 645367566B59703273357638792F423F4528482B4D6251655468576D5A713474
+  expiration: 3600000
 
 spring:
   jpa:
@@ -86,14 +91,14 @@ spring:
             enable: true
           auth: true
     host: smtp.gmail.com
-    username: jira4jr@gmail.com
+    username: pavlo.plynko@gmail.com
     password: ${JIRARUSH_MAIL_PASSWORD}
     port: 587
   thymeleaf.check-template-location: false
 
 logging:
   level:
-    root: WARN
+    root: DEBUG
     com.javarush.jira: DEBUG
     com.javarush.jira.common.config.MvcConfig: WARN
     org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG

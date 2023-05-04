@@ -2,7 +2,6 @@ package com.javarush.jira.bugtracking;
 
 import com.javarush.jira.bugtracking.internal.model.Task;
 import com.javarush.jira.bugtracking.web.AbstractTaskController;
-import com.javarush.jira.profile.web.AbstractProfileController;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,7 +32,7 @@ public class BacklogUIController extends AbstractTaskController {
     public String getBacklogPage(Model model, @PathVariable("pageNumber") int pageNumber) {
         Page<Task> tasksPage = taskService.getBacklogPage(PageRequest.of(pageNumber - 1, 5));
         int totalPages = tasksPage.getTotalPages();
-        long toalTasks =tasksPage.getTotalElements();
+        long toalTasks = tasksPage.getTotalElements();
         List<Task> tasksList = tasksPage.getContent();
 
         model.addAttribute("currentPage", pageNumber);
