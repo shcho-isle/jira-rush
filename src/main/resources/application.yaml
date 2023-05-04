@@ -98,7 +98,7 @@ spring:
 
 logging:
   level:
-    root: DEBUG
+    root: WARN
     com.javarush.jira: DEBUG
     com.javarush.jira.common.config.MvcConfig: WARN
     org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
