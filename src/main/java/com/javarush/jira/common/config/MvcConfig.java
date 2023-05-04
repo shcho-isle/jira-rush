@@ -90,7 +90,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("file:./resources/static/");
+        registry.addResourceHandler("/static/**").addResourceLocations("http://nginx/static/");
         registry.setOrder(Integer.MAX_VALUE);
     }
 
