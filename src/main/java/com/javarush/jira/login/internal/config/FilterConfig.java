@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@EnableMethodSecurity
 public class FilterConfig {
 
     private final JwtAuthorizationFilter jwtAuthFilter;
@@ -42,7 +41,6 @@ public class FilterConfig {
                 .requestMatchers("/view/unauth/**", "/ui/register/**", "/ui/password").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .userDetailsService(userDetailsService)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)
